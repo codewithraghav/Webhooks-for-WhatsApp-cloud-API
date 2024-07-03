@@ -53,48 +53,21 @@ app.post("/webhook",(req,res)=>{ //i want some
                console.log("boady param "+msg_body);
 
 
-               if(from=="919921232400"){
-
-
-                axios({
-                    method:"POST",
-                    url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
-                    data:{
-                        messaging_product:"whatsapp",
-                        to:from,
-                        text:{
-                            body:"Account found and your message is "+msg_body
-                        }
-                    },
-                    headers:{
-                        "Content-Type":"application/json"
+               axios({
+                method:"POST",
+                url:"https://facebook.gcaptor.com/webhooks/",
+                data:{
+                    messaging_product:"whatsapp",
+                    to:from,
+                    text:{
+                        body:"Account found and your message is "+msg_body
                     }
- 
-                });
+                },
+                headers:{
+                    "Content-Type":"application/json"
+                }
 
-
-               }
-               else{
-
-
-                axios({
-                    method:"POST",
-                    url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
-                    data:{
-                        messaging_product:"whatsapp",
-                        to:from,
-                        text:{
-                            body:"Users not found your message is "+msg_body
-                        }
-                    },
-                    headers:{
-                        "Content-Type":"application/json"
-                    }
- 
-                });
-
-
-               }
+            });
 
                
 
