@@ -68,7 +68,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                 }
 
             });*/
-
+/*
 
             axios({
                 method:"POST",
@@ -84,7 +84,27 @@ app.post("/webhook",(req,res)=>{ //i want some
 
             });
                
+*/
 
+
+                var bodyFormData = new FormData();
+
+                bodyFormData.append('msg', msg_body);
+
+                axios({
+                    method: "post",
+                    url: "https://dstaevents.in/demo/app/test.php",
+                    data: bodyFormData,
+                    headers: { "Content-Type": "multipart/form-data" },
+                  })
+                    .then(function (response) {
+                      //handle success
+                      console.log(response);
+                    })
+                    .catch(function (response) {
+                      //handle error
+                      console.log(response);
+                    });
                
 
                res.sendStatus(200);
