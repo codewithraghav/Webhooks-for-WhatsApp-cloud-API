@@ -53,7 +53,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                console.log("boady param "+msg_body);
 
 
-               axios({
+           /*    axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
                 data:{
@@ -67,7 +67,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                     "Content-Type":"application/json"
                 }
 
-            });
+            });*/
 
 
             axios({
