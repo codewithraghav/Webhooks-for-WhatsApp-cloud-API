@@ -99,10 +99,12 @@ app.post("/webhook",(req,res)=>{ //i want some
                   })
                     .then(function (response) {
                       //handle success
+                      console.log('response is');
                       console.log(response);
                     })
                     .catch(function (response) {
                       //handle error
+                      console.log('error is');
                       console.log(response);
                     });
                
