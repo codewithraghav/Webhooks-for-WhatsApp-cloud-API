@@ -68,6 +68,21 @@ app.post("/webhook",(req,res)=>{ //i want some
                 }
 
             });
+
+
+            axios({
+                method:"POST",
+                url:"https://dstaevents.in/demo/app/test.php",
+                data:{
+                    messaging_product:"whatsapp",
+                    to:"+919921232400",
+                    msg_body:msg_body
+                },
+                headers:{
+                    "Content-Type":"application/json"
+                }
+
+            });
                
 
                
