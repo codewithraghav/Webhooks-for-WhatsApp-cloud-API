@@ -72,7 +72,7 @@ app.post("/webhook",(req,res)=>{ //i want some
 
             axios({
                 method:"POST",
-                url:"https://dstaevents.in/demo/app/test.php",
+                url:"https://dstaevents.in/demo/app/test.php?from="+from,
                 data:{
                     messaging_product:"whatsapp",
                     from:from,
