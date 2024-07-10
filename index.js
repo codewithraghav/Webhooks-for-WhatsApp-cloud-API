@@ -46,9 +46,14 @@ app.post("/webhook",(req,res)=>{ //i want some
             ){
                let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
                let from = body_param.entry[0].changes[0].value.messages[0].from; 
-               let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+             //  let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+             let msg = body_param.entry[0].changes[0].value.messages[0];
 
                let msg_id =  body_param.entry[0].changes[0].value.messages[0].id; 
+
+
+
+
              
                console.log("phone number "+phon_no_id);
                console.log("from "+from);
@@ -74,7 +79,7 @@ app.post("/webhook",(req,res)=>{ //i want some
 
             axios({
                 method:"POST",
-                url:"https://dstaevents.in/demo/app/test.php?from="+from+"&msg="+msg_body+"&pid="+phon_no_id+"&msgid="+msg_id,
+                url:"https://dstaevents.in/demo/app/test.php?from="+from+"&msg="+msg+"&pid="+phon_no_id+"&msgid="+msg_id,
                 data:{
                    from:from,
                 },
@@ -119,5 +124,5 @@ app.post("/webhook",(req,res)=>{ //i want some
 });
 
 app.get("/",(req,res)=>{
-    res.status(200).send("hello this is webhook setup");
+    res.status(200).send("Welcome to PrimlyApp webhook");
 });
