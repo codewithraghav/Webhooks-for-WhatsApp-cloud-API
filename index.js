@@ -109,7 +109,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                    from:from,
                 },
                 headers:{
-                    "Content-Type":"application/json"
+                    "Content-Type":"application/x-www-form-urlencoded"
                 }
 
             });
