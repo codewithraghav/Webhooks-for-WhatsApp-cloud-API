@@ -149,5 +149,5 @@ app.post("/webhook",(req,res)=>{ //i want some
 });
 
 app.get("/",(req,res)=>{
-    res.status(200).send("Welcome to PrimlyApp webhook");
+    res.status(200).send("Welcome to PrimlyApp webhook. Added encodeURIComponent");
 });
