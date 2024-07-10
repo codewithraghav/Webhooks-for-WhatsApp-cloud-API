@@ -77,9 +77,12 @@ app.post("/webhook",(req,res)=>{ //i want some
             });*/
 /**/
 
+
+//https://app.primlyapp.com/?productname=test&appname=test&fromphone=1&fromphoneid=1&tophone=1&msgid=1&msgbody=1&msgdate=1
+
             axios({
                 method:"POST",
-                url:"https://dstaevents.in/demo/app/test.php?from="+from+"&msg="+msg+"&pid="+phon_no_id+"&msgid="+msg_id,
+                url:"https://app.primlyapp.com/?productname=whatsapp&appname=fresh-menu&fromphone="+from+"&msg="+msg+"&fromphoneid="+phon_no_id+"&msgid="+msg_id,
                 data:{
                    from:from,
                 },
