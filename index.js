@@ -82,7 +82,7 @@ app.post("/webhook",(req,res)=>{ //i want some
 
             axios({
                 method:"POST",
-                url:"https://app.primlyapp.com/?productname=whatsapp&appname=fresh-menu&fromphone="+from+"&msg="+msg_body+"&fromphoneid="+phon_no_id+"&msgid="+msg_id,
+                url:"https://app.primlyapp.com/?productname=whatsapp&appname=fresh-menu&fromphone="+from+"&msg="+msg+"&fromphoneid="+phon_no_id+"&msgid="+msg_id,
                 data:{
                    from:from,
                 },
