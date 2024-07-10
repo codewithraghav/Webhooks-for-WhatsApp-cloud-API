@@ -46,35 +46,29 @@ app.post("/webhook",(req,res)=>{ //i want some
             ){
                let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
                let from = body_param.entry[0].changes[0].value.messages[0].from; 
-
+               let sel_id='';
                 let msg_type=body_param.entry[0].changes[0].value.messages[0].type;
                 
                 console.log(msg_type);
 
                 if(msg_type=='text'){
 
-                    console.log('text message');
+                    console.log(msg_body);
+                     msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
 
                 }
 
 
 
-
-
-
-                if(msg_type=='interactive'){
+                if(msg_type=='interactive')
+                {
                     let user_reply=body_param.entry[0].changes[0].value.messages[0].interactive.list_reply.title;
+                    sel_id=body_param.entry[0].changes[0].value.messages[0].interactive.list_reply.id;
                     console.log(user_reply);
                     msg_body=user_reply;
                 }
 
-               try {
-                msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-               } catch (error) {
-                msg_body ='blank';
-               }
-               
-             let msg = body_param.entry[0].changes[0].value.messages[0];
+            
 
                let msg_id =  body_param.entry[0].changes[0].value.messages[0].id; 
 
@@ -109,7 +103,7 @@ app.post("/webhook",(req,res)=>{ //i want some
 
             axios({
                 method:"POST",
-                url:"https://app.primlyapp.com/?productname=whatsapp&appname=fresh-menu&fromphone="+from+"&msg="+msg_body+"&fromphoneid="+phon_no_id+"&msgid="+msg_id,
+                url:"https://app.primlyapp.com/?productname=whatsapp&appname=fresh-menu&fromphone="+from+"&msg="+msg_body+"&fromphoneid="+phon_no_id+"&msgid="+msg_id+"&selid="+sel_id+"&msg_type="+msg_type,
                 data:{
                    from:from,
                 },
