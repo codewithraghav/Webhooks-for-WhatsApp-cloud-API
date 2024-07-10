@@ -47,15 +47,16 @@ app.post("/webhook",(req,res)=>{ //i want some
                let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
                let from = body_param.entry[0].changes[0].value.messages[0].from; 
                let sel_id='';
-                let msg_type=body_param.entry[0].changes[0].value.messages[0].type;
+               let msg_body='';
+               let msg_type=body_param.entry[0].changes[0].value.messages[0].type;
                 
                 console.log(msg_type);
 
                 if(msg_type=='text'){
 
-                    console.log(msg_body);
+                   
                      msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-
+                     console.log("text:"+msg_body);
                 }
 
 
@@ -64,8 +65,8 @@ app.post("/webhook",(req,res)=>{ //i want some
                 {
                     let user_reply=body_param.entry[0].changes[0].value.messages[0].interactive.list_reply.title;
                     sel_id=body_param.entry[0].changes[0].value.messages[0].interactive.list_reply.id;
-                    console.log(user_reply);
                     msg_body=user_reply;
+                    console.log("reply:"+msg_body);
                 }
 
             
