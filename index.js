@@ -49,7 +49,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                let sel_id='';
                let msg_body='';
                let msg_type=body_param.entry[0].changes[0].value.messages[0].type;
-                
+                let randomtoken='';
                 console.log(msg_type);
 
                 if(msg_type=='text'){
@@ -82,22 +82,7 @@ app.post("/webhook",(req,res)=>{ //i want some
             //   console.log("boady param "+msg_body);
 
 
-           /*    axios({
-                method:"POST",
-                url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
-                data:{
-                    messaging_product:"whatsapp",
-                    to:"+919921232400",
-                    text:{
-                        body:"Key is "+msg_body
-                    }
-                },
-                headers:{
-                    "Content-Type":"application/json"
-                }
-
-            });*/
-
+           
 
 
 //https://app.primlyapp.com/?productname=test&appname=test&fromphone=1&fromphoneid=1&tophone=1&msgid=1&msgbody=1&msgdate=1
@@ -114,13 +99,29 @@ app.post("/webhook",(req,res)=>{ //i want some
 
             }).then(function (response) {
                 console.log('axios'+response);
+                randomtoken=response;
               })
               .catch(function (error) {
                 console.log(error);
               });
 
 
-            
+              axios({
+                method:"POST",
+                url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
+                data:{
+                    messaging_product:"whatsapp",
+                    to:"+919921232400",
+                    text:{
+                        body:"quick message ? link https://dstaevents.in/demo/waitems.php?token="+randomtoken
+                    }
+                },
+                headers:{
+                    "Content-Type":"application/json"
+                }
+
+            });
+
                
 
 
