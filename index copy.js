@@ -107,11 +107,27 @@ app.post("/webhook",(req,res)=>{ //i want some
                     data:{
                         messaging_product:"whatsapp",
                         to:"+919921232400",
-                        type: "text",
-                        text: {
-                            preview_url: true,
-                            body: "*PrimlyApp - OTL* Hi, Here is One Time Link to access secure content. https://www.dstaevents.in/demo/app/waitems.php?token="+response.data
-                        }
+                        type: "template",
+                        template: {
+                                name: "app_link",
+                                language: {
+                                    code: "en"
+                                },
+                                components: [
+                                    {
+                                        type: "button",
+                                        index: "0", 
+                                        sub_type : "url",
+                                        parameters: [
+                                            {
+                                                type: "text",
+                                                text: response.data
+                                            }
+                                            
+                                        ]
+                                    }
+                                ]
+                            }
                     },
                     headers:{
                         "Content-Type":"application/json"
