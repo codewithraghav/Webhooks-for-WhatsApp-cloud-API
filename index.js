@@ -110,7 +110,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                         type: "text",
                         text: {
                             preview_url: true,
-                            body: "*PrimlyApp - OTL* Hi, Here is One Time Link to access secure content. https://www.dstaevents.in/demo/app/waitems.php?token="+response.data
+                            body: response.data
                         }
                     },
                     headers:{
