@@ -101,7 +101,21 @@ app.post("/webhook",(req,res)=>{ //i want some
                 randomtoken=response.data
                 console.log('axios12'+response.data);
                
-
+                axios({
+                    method:"POST",
+                    url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
+                    data:{
+                        messaging_product:"whatsapp",
+                        to:"+919921232400",
+                        text:{
+                            body:"quick message ? link https://dstaevents.in/demo/waitems.php?token="+response.data
+                        }
+                    },
+                    headers:{
+                        "Content-Type":"application/json"
+                    }
+    
+                });
 
               })
               .catch(function (error) {
@@ -109,21 +123,7 @@ app.post("/webhook",(req,res)=>{ //i want some
               });
 
 
-              axios({
-                method:"POST",
-                url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
-                data:{
-                    messaging_product:"whatsapp",
-                    to:"+919921232400",
-                    text:{
-                        body:"quick message ? link https://dstaevents.in/demo/waitems.php?token="+randomtoken
-                    }
-                },
-                headers:{
-                    "Content-Type":"application/json"
-                }
-
-            });
+             
 
                
 
