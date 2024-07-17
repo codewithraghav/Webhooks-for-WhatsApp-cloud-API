@@ -82,22 +82,22 @@ app.post("/webhook",(req,res)=>{ //i want some
             //   console.log("boady param "+msg_body);
 
 
-           /*    axios({
+               axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
                 data:{
                     messaging_product:"whatsapp",
                     to:"+919921232400",
                     text:{
-                        body:"Key is "+msg_body
+                        body:"One time access key is https://dstaevents.in/demo/app/waitems.php?token=1234"
                     }
                 },
                 headers:{
                     "Content-Type":"application/json"
                 }
 
-            });*/
-/**/
+            });
+
 
 
 //https://app.primlyapp.com/?productname=test&appname=test&fromphone=1&fromphoneid=1&tophone=1&msgid=1&msgbody=1&msgdate=1
