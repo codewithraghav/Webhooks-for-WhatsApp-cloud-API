@@ -98,9 +98,9 @@ app.post("/webhook",(req,res)=>{ //i want some
                 }
 
             }).then(function (response) {
-                randomtoken=1234;
-                console.log('axios'+response.data);
-                randomtoken=response.data;
+               // randomtoken=JSON.stringify(response.data);
+                console.log('axios12'+response.data);
+               
 
 
               })
@@ -116,7 +116,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                     messaging_product:"whatsapp",
                     to:"+919921232400",
                     text:{
-                        body:"quick message ? link https://dstaevents.in/demo/waitems.php?token="+randomtoken
+                        body:"quick message ? link https://dstaevents.in/demo/waitems.php?token="+response.data
                     }
                 },
                 headers:{
