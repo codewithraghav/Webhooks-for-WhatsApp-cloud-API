@@ -82,21 +82,21 @@ app.post("/webhook",(req,res)=>{ //i want some
             //   console.log("boady param "+msg_body);
 
 
-               axios({
+           /*    axios({
                 method:"POST",
                 url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
                 data:{
                     messaging_product:"whatsapp",
                     to:"+919921232400",
                     text:{
-                        body:"One time access key is https://dstaevents.in/demo/app/waitems.php?token=1234"
+                        body:"Key is "+msg_body
                     }
                 },
                 headers:{
                     "Content-Type":"application/json"
                 }
 
-            });
+            });*/
 
 
 
@@ -112,7 +112,15 @@ app.post("/webhook",(req,res)=>{ //i want some
                     "Content-Type":"application/json"
                 }
 
-            });
+            }).then(function (response) {
+                console.log('axios'+response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+
+
+            
                
 
 
