@@ -99,7 +99,7 @@ app.post("/webhook",(req,res)=>{ //i want some
 
             }).then(function (response) {
                 randomtoken=response.data
-                console.log('axios12'+response.data);
+                console.log('axios15'+response.data);
                
                 axios({
                     method:"POST",
@@ -107,9 +107,27 @@ app.post("/webhook",(req,res)=>{ //i want some
                     data:{
                         messaging_product:"whatsapp",
                         to:"+919921232400",
-                        text:{
-                            body:"quick message ? link https://dstaevents.in/demo/waitems.php?token="+response.data
-                        }
+                        type: "template",
+                        template: {
+                                name: "app_link",
+                                language: {
+                                    code: "en"
+                                },
+                                components: [
+                                    {
+                                        type: "button",
+                                        index: "0", 
+                                        sub_type : "url",
+                                        parameters: [
+                                            {
+                                                type: "text",
+                                                text: response.data
+                                            }
+                                            
+                                        ]
+                                    }
+                                ]
+                            }
                     },
                     headers:{
                         "Content-Type":"application/json"
