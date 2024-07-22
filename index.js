@@ -106,7 +106,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                     url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
                     data:{
                         messaging_product:"whatsapp",
-                        to:"+919921232400",
+                        to:from,
                         type: "text",
                         text: {
                             preview_url: true,
